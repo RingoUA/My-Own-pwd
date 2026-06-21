@@ -1,6 +1,6 @@
 # My Own `pwd`
 
-A reimplementation of the Unix [`pwd`](https://man7.org/linux/man-pages/man1/pwd.1.html) utility.
+A clone of the Unix [`pwd`](https://man7.org/linux/man-pages/man1/pwd.1.html) utility.
 
 ## About
 

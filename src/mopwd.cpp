@@ -1,5 +1,6 @@
 #include "mopwd.hpp"
 
+#include <string>
 #include <cstdlib>
 #include <unistd.h>
 
