@@ -21,7 +21,8 @@ target_sources(mopwd
     PRIVATE
         src/main.cpp
         src/mopwd.cpp
-        src/arg_parcer.cpp
+        src/arg_parser.cpp
+        src/free_deleter.cpp
 )
 
 target_include_directories(mopwd
