@@ -1,0 +1,5 @@
+#pragma once
+
+namespace mopwd {
+    inline constexpr char VERSION[] = "@PROJECT_VERSION@";
+}
