@@ -16,7 +16,7 @@ TEST_CASE("No arguments means logical mode")
     REQUIRE(*result == mopwd::Command::LOGICAL);
 }
 
-TEST_CASE("-L means logical mode")
+TEST_CASE("Parse -L like logical mode")
 {
     auto result = mopwd::parse_args(
         std::array{
@@ -28,7 +28,7 @@ TEST_CASE("-L means logical mode")
     REQUIRE(*result == mopwd::Command::LOGICAL);
 }
 
-TEST_CASE("--logical means logical mode")
+TEST_CASE("Parse --logical like logical mode")
 {
     auto result = mopwd::parse_args(
         std::array{
@@ -40,7 +40,7 @@ TEST_CASE("--logical means logical mode")
     REQUIRE(*result == mopwd::Command::LOGICAL);
 }
 
-TEST_CASE("-P means physical mode")
+TEST_CASE("Parse -P like physical mode")
 {
     auto result = mopwd::parse_args(
         std::array{
@@ -52,7 +52,7 @@ TEST_CASE("-P means physical mode")
     REQUIRE(*result == mopwd::Command::PHYSICAL);
 }
 
-TEST_CASE("--physical means physical mode")
+TEST_CASE("Parse --physical like physical mode")
 {
     auto result = mopwd::parse_args(
         std::array{

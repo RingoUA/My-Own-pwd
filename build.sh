@@ -3,4 +3,5 @@ mkdir build
 pushd ./build
 cmake ..
 cmake --build .
+ctest --test-dir .
 popd
