@@ -1,20 +1,37 @@
 #include "arg_parser.hpp"
 
+#include <expected>
+#include <span>
 #include <string_view>
 
+#include "command.hpp"
+#include "parse_error.hpp"
+
 namespace mopwd {
-    Command parse_args(int argc, char** argv) {
-        if (argc == 1) return mopwd::Command::LOGICAL;
-        std::string_view arg = argv[1];
-        if (arg == "-h" || arg == "--help") {
-            return mopwd::Command::HELP;
-        } else if (arg == "-v" || arg == "--version") {
-            return mopwd::Command::VERSION;
-        } else if (arg == "-L" || arg == "--logical") {
-            return mopwd::Command::LOGICAL;
-        } else if (arg == "-P" || arg == "--physical") {
-            return mopwd::Command::PHYSICAL;
+    std::expected<Command, ParseError>  parse_args(std::span<const std::string_view> args) {
+        if (args.empty()) {
+            return Command::LOGICAL;
         }
-        return mopwd::Command::HELP;
+
+        if (args.size() > 1) {
+            return std::unexpected(ParseError::TOO_MANY_ARGUMENTS);
+        }
+
+        auto arg = args[0];
+
+        if (arg == "-h" || arg == "--help") {
+            return Command::HELP;
+        }
+        if (arg == "-v" || arg == "--version") {
+            return Command::VERSION;
+        }
+        if (arg == "-L" || arg == "--logical") {
+            return Command::LOGICAL;
+        }
+        if (arg == "-P" || arg == "--physical") {
+            return Command::PHYSICAL;
+        }
+
+        return std::unexpected(ParseError::UNKNOWN_OPTION);
     }
 }

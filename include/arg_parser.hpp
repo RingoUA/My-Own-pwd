@@ -1,7 +1,13 @@
 #pragma once
 
+#include <expected>
+#include <span>
+#include <string_view>
+
 #include "command.hpp"
+#include "parse_error.hpp"
+
 
 namespace mopwd {
-    Command parse_args(int argc, char** argv);
+    std::expected<Command, ParseError> parse_args(std::span<const std::string_view> args);
 }
