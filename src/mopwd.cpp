@@ -5,11 +5,18 @@
 #include <cstdlib>
 #include <unistd.h>
 
-#include "free_deleter.hpp"
+namespace {
+    struct FreeDeleter {
+        void operator()(char* ptr) const noexcept {
+            std::free(ptr);
+        }
+    };
+
+    using cwd_ptr = std::unique_ptr<char, FreeDeleter>;
+}
 
 namespace mopwd {
     std::string get_physical_path() {
-        using cwd_ptr = std::unique_ptr<char, FreeDeleter>;
         auto path = cwd_ptr(getcwd(nullptr, 0));
         if (!path) {
             return {}; // TODO: return error details
