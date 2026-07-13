@@ -3,7 +3,7 @@
 
 #include <catch2/catch_test_macros.hpp>
 
-#include "arg_parser.hpp"
+import arg_parser;
 
 TEST_CASE("No arguments means logical mode")
 {

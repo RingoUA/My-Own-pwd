@@ -1,8 +1,17 @@
 enable_testing()
 
-add_executable(mopwd_tests
-    test_arg_parser.cpp
-    ${PROJECT_SOURCE_DIR}/src/arg_parser.cpp
+add_executable(mopwd_tests)
+
+target_sources(mopwd_tests
+    PRIVATE
+        FILE_SET CXX_MODULES
+        BASE_DIRS
+            ${PROJECT_SOURCE_DIR}/modules
+        FILES ${PROJECT_SOURCE_DIR}/modules/arg_parser.cppm
+
+    PRIVATE
+        test_arg_parser.cpp
+        ${PROJECT_SOURCE_DIR}/src/arg_parser.cpp
 )
 
 target_include_directories(mopwd_tests

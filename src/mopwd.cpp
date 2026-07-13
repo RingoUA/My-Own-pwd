@@ -1,9 +1,11 @@
-#include "mopwd.hpp"
+module;
 
 #include <memory>
 #include <string>
 #include <cstdlib>
 #include <unistd.h>
+
+module mopwd;
 
 namespace {
     struct FreeDeleter {

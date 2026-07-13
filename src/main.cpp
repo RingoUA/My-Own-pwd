@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
 
-#include "arg_parser.hpp"
-#include "mopwd.hpp"
-#include "help.hpp"
+// #include "arg_parser.hpp"
+// #include "mopwd.hpp"
+// #include "help.hpp"
 #include "version.hpp"
+
+import arg_parser;
+import mopwd;
+import help;
 
 void handle_error(mopwd::ParseError error) {
     switch (error) {

@@ -1,8 +1,10 @@
-#include "arg_parser.hpp"
+module;
 
 #include <expected>
 #include <span>
 #include <string_view>
+
+module arg_parser;
 
 namespace mopwd {
     std::expected<Command, ParseError>  parse_args(std::span<const std::string_view> args) {

@@ -1,12 +1,11 @@
-#ifndef MOPWD_HPP
-#define MOPWD_HPP
+module;
 
 #include <string>
 
-namespace mopwd {
+export module mopwd;
+
+export namespace mopwd {
     std::string get_physical_path();
 
     std::string get_logical_path();
 }
-
-#endif // MOPWD_HPP

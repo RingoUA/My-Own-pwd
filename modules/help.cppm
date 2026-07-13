@@ -1,7 +1,6 @@
-#ifndef HELP_HPP
-#define HELP_HPP
+export module help;
 
-namespace mopwd {
+export namespace mopwd {
 inline constexpr char HELP_TEXT[] = R"(Usage: mopwd [OPTION]
 
 Print the current working directory.
@@ -13,5 +12,3 @@ Options:
     -v, --version   display version
 )";
 }
-
-#endif // HELP_HPP

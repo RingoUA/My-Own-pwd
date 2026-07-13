@@ -1,11 +1,12 @@
-#ifndef ARG_PARSER_HPP
-#define ARG_PARSER_HPP
+module;
 
 #include <expected>
 #include <span>
 #include <string_view>
 
-namespace mopwd {
+export module arg_parser;
+
+export namespace mopwd {
     enum class [[nodiscard("Check error code!")]] ParseError {
         TOO_MANY_ARGUMENTS,
         UNKNOWN_OPTION
@@ -21,5 +22,3 @@ namespace mopwd {
     [[nodiscard("Check error code!")]]
     std::expected<Command, ParseError> parse_args(std::span<const std::string_view> args);
 }
-
-#endif // ARG_PARSER_HPP
