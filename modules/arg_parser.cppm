@@ -8,15 +8,15 @@ export module arg_parser;
 
 export namespace mopwd {
     enum class [[nodiscard("Check error code!")]] ParseError {
-        TOO_MANY_ARGUMENTS,
-        UNKNOWN_OPTION
+        TooManyArguments,
+        UnknownOption
     };
 
     enum class Command {
-        LOGICAL,
-        PHYSICAL,
-        HELP,
-        VERSION
+        Logical,
+        Physical,
+        Help,
+        Version
     };
 
     [[nodiscard("Check error code!")]]

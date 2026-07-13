@@ -12,7 +12,7 @@ TEST_CASE("No arguments means logical mode")
     );
 
     REQUIRE(result);
-    REQUIRE(*result == mopwd::Command::LOGICAL);
+    REQUIRE(*result == mopwd::Command::Logical);
 }
 
 TEST_CASE("Parse -L like logical mode")
@@ -24,7 +24,7 @@ TEST_CASE("Parse -L like logical mode")
     );
 
     REQUIRE(result);
-    REQUIRE(*result == mopwd::Command::LOGICAL);
+    REQUIRE(*result == mopwd::Command::Logical);
 }
 
 TEST_CASE("Parse --logical like logical mode")
@@ -36,7 +36,7 @@ TEST_CASE("Parse --logical like logical mode")
     );
 
     REQUIRE(result);
-    REQUIRE(*result == mopwd::Command::LOGICAL);
+    REQUIRE(*result == mopwd::Command::Logical);
 }
 
 TEST_CASE("Parse -P like physical mode")
@@ -48,7 +48,7 @@ TEST_CASE("Parse -P like physical mode")
     );
 
     REQUIRE(result);
-    REQUIRE(*result == mopwd::Command::PHYSICAL);
+    REQUIRE(*result == mopwd::Command::Physical);
 }
 
 TEST_CASE("Parse --physical like physical mode")
@@ -60,7 +60,7 @@ TEST_CASE("Parse --physical like physical mode")
     );
 
     REQUIRE(result);
-    REQUIRE(*result == mopwd::Command::PHYSICAL);
+    REQUIRE(*result == mopwd::Command::Physical);
 }
 
 TEST_CASE("Unknown option")
@@ -72,7 +72,7 @@ TEST_CASE("Unknown option")
     );
 
     REQUIRE_FALSE(result);
-    REQUIRE(result.error() == mopwd::ParseError::UNKNOWN_OPTION);
+    REQUIRE(result.error() == mopwd::ParseError::UnknownOption);
 }
 
 TEST_CASE("Too many arguments")
@@ -85,5 +85,5 @@ TEST_CASE("Too many arguments")
     );
 
     REQUIRE_FALSE(result);
-    REQUIRE(result.error() == mopwd::ParseError::TOO_MANY_ARGUMENTS);
+    REQUIRE(result.error() == mopwd::ParseError::TooManyArguments);
 }

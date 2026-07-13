@@ -12,10 +12,10 @@ import help;
 
 void handle_error(mopwd::ParseError error) {
     switch (error) {
-        case mopwd::ParseError::TOO_MANY_ARGUMENTS:
+        case mopwd::ParseError::TooManyArguments:
             std::cerr << "Too many arguments\n";
             break;
-        case mopwd::ParseError::UNKNOWN_OPTION:
+        case mopwd::ParseError::UnknownOption:
             std::cerr << "Unknown option\n";
             break;
     }
@@ -23,16 +23,16 @@ void handle_error(mopwd::ParseError error) {
 
 void handle_command(mopwd::Command command) {
     switch (command) {
-        case mopwd::Command::HELP:
+        case mopwd::Command::Help:
             std::cout << mopwd::HELP_TEXT << '\n';
             break;
-        case mopwd::Command::VERSION:
+        case mopwd::Command::Version:
             std::cout << mopwd::VERSION << '\n';
             break;
-        case mopwd::Command::LOGICAL:
+        case mopwd::Command::Logical:
             std::cout << mopwd::get_logical_path() << '\n';
             break;
-        case mopwd::Command::PHYSICAL:
+        case mopwd::Command::Physical:
             std::cout << mopwd::get_physical_path() << '\n';
             break;
     }
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
 
     if (!result) {
         handle_error(result.error());
-        handle_command(mopwd::Command::HELP);
+        handle_command(mopwd::Command::Help);
         return 1;
     }
 
