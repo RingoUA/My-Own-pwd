@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MOPWD_HPP
+#define MOPWD_HPP
 
 #include <string>
 
@@ -7,3 +8,5 @@ namespace mopwd {
 
     std::string get_logical_path();
 }
+
+#endif // MOPWD_HPP

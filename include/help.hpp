@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HELP_HPP
+#define HELP_HPP
 
 namespace mopwd {
 inline constexpr char HELP_TEXT[] = R"(Usage: mopwd [OPTION]
@@ -12,3 +13,5 @@ Options:
     -v, --version   display version
 )";
 }
+
+#endif // HELP_HPP

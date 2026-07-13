@@ -1,5 +1,8 @@
-#pragma once
+#ifndef VERSION_HPP
+#define VERSION_HPP
 
 namespace mopwd {
     inline constexpr char VERSION[] = "@PROJECT_VERSION@";
 }
+
+#endif // VERSION_HPP

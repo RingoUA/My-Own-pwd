@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-mkdir build
-pushd ./build
-cmake ..
-cmake --build .
-ctest --test-dir .
-popd
+
+cmake -S . -B build -G Ninja
+cmake --build build
+ctest --test-dir build

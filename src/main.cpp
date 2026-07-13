@@ -1,12 +1,9 @@
-#include "mopwd.hpp"
-
 #include <iostream>
 #include <vector>
 
 #include "arg_parser.hpp"
-#include "command.hpp"
+#include "mopwd.hpp"
 #include "help.hpp"
-#include "parse_error.hpp"
 #include "version.hpp"
 
 void handle_error(mopwd::ParseError error) {
@@ -49,8 +46,9 @@ int main(int argc, char** argv) {
 
     if (!result) {
         handle_error(result.error());
+        handle_command(mopwd::Command::HELP);
         return 1;
     }
 
-    handle_command(*result);
+    handle_command(result.value());
 }
