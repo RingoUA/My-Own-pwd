@@ -1,9 +1,6 @@
 #include <iostream>
 #include <vector>
 
-// #include "arg_parser.hpp"
-// #include "mopwd.hpp"
-// #include "help.hpp"
 #include "version.hpp"
 
 import arg_parser;
@@ -21,6 +18,15 @@ void handle_error(mopwd::ParseError error) {
     }
 }
 
+void handle_command_error(mopwd::Error error) {
+    switch (error) {
+        case mopwd::Error::PathIsNull:
+        default:
+            std::cerr << "Error: Could not determine current working directory\n";
+            break;
+    }
+}
+
 void handle_command(mopwd::Command command) {
     switch (command) {
         case mopwd::Command::Help:
@@ -29,12 +35,26 @@ void handle_command(mopwd::Command command) {
         case mopwd::Command::Version:
             std::cout << mopwd::VERSION << '\n';
             break;
-        case mopwd::Command::Logical:
-            std::cout << mopwd::get_logical_path() << '\n';
+        case mopwd::Command::Logical: {
+            auto result = mopwd::get_logical_path();
+            if (!result) {
+                handle_command_error(result.error());
+                handle_command(mopwd::Command::Help);
+                break;
+            }
+            std::cout << result.value() << '\n';
             break;
-        case mopwd::Command::Physical:
-            std::cout << mopwd::get_physical_path() << '\n';
+        }
+        case mopwd::Command::Physical: {
+            auto result = mopwd::get_physical_path();
+            if (!result) {
+                handle_command_error(result.error());
+                handle_command(mopwd::Command::Help);
+                break;
+            }
+            std::cout << result.value() << '\n';
             break;
+        }
     }
 }
 

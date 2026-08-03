@@ -1,8 +1,9 @@
 module;
 
+#include <cstdlib>
+#include <expected>
 #include <memory>
 #include <string>
-#include <cstdlib>
 #include <unistd.h>
 
 module mopwd;
@@ -18,15 +19,15 @@ namespace {
 }
 
 namespace mopwd {
-    std::string get_physical_path() {
+    std::expected<std::string, Error> get_physical_path() {
         auto path = cwd_ptr(getcwd(nullptr, 0));
         if (!path) {
-            return {}; // TODO: return error details
+            return std::unexpected(Error::PathIsNull);
         }
         return path.get();
     }
 
-    std::string get_logical_path() {
+    std::expected<std::string, Error> get_logical_path() {
         if (const char* path = std::getenv("PWD")) {
             return path;
         }

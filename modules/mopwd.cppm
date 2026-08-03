@@ -1,11 +1,18 @@
 module;
 
+#include <expected>
 #include <string>
 
 export module mopwd;
 
 export namespace mopwd {
-    std::string get_physical_path();
+    enum class [[nodiscard]] Error {
+        PathIsNull,
+    };
 
-    std::string get_logical_path();
+    [[nodiscard]]
+    std::expected<std::string, Error> get_physical_path();
+
+    [[nodiscard]]
+    std::expected<std::string, Error> get_logical_path();
 }

@@ -7,7 +7,7 @@ module;
 export module arg_parser;
 
 export namespace mopwd {
-    enum class [[nodiscard("Check error code!")]] ParseError {
+    enum class [[nodiscard]] ParseError {
         TooManyArguments,
         UnknownOption
     };
@@ -19,6 +19,6 @@ export namespace mopwd {
         Version
     };
 
-    [[nodiscard("Check error code!")]]
+    [[nodiscard]]
     std::expected<Command, ParseError> parse_args(std::span<const std::string_view> args);
 }
