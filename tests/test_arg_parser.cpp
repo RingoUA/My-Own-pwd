@@ -1,7 +1,6 @@
-#include <array>
-#include <string_view>
-
 #include <catch2/catch_test_macros.hpp>
+
+import std;
 
 import arg_parser;
 

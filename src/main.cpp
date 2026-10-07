@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+import std;
 
 #include "version.hpp"
 

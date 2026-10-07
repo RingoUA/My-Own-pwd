@@ -1,8 +1,6 @@
 module;
 
-#include <expected>
-#include <span>
-#include <string_view>
+import std;
 
 module arg_parser;
 

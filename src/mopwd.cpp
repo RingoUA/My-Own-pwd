@@ -1,10 +1,8 @@
 module;
 
-#include <cstdlib>
-#include <expected>
-#include <memory>
-#include <string>
 #include <unistd.h>
+
+import std;
 
 module mopwd;
 

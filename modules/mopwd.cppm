@@ -1,7 +1,6 @@
 module;
 
-#include <expected>
-#include <string>
+import std;
 
 export module mopwd;
 
